@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MewQTT", "MewQTT\MewQTT.csproj", "{46E47639-B793-480E-B5ED-851AC756222A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServer", "TestServer\TestServer.csproj", "{CC053972-FA75-4B25-B482-2179A47268BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46E47639-B793-480E-B5ED-851AC756222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E47639-B793-480E-B5ED-851AC756222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E47639-B793-480E-B5ED-851AC756222A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E47639-B793-480E-B5ED-851AC756222A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC053972-FA75-4B25-B482-2179A47268BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC053972-FA75-4B25-B482-2179A47268BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC053972-FA75-4B25-B482-2179A47268BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC053972-FA75-4B25-B482-2179A47268BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F0C0C1B-F5B9-4FE8-85DA-C09EA91E3BCB}
+	EndGlobalSection
+EndGlobal

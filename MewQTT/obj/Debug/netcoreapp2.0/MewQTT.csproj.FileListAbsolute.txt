@@ -1,0 +1,9 @@
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\bin\Debug\netcoreapp2.0\MewQTT.deps.json
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\bin\Debug\netcoreapp2.0\MewQTT.dll
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.csproj.CoreCompileInputs.cache
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.AssemblyInfoInputs.cache
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.AssemblyInfo.cs
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\bin\Debug\netcoreapp2.0\MewQTT.pdb
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.dll
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.pdb
+C:\Users\ww.QBUS\source\repos\MewQTT\MewQTT\obj\Debug\netcoreapp2.0\MewQTT.csprojResolveAssemblyReference.cache
