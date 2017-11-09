@@ -1,4 +1,5 @@
 ﻿using MewQTT.Frames;
+using MewQTT.Models;
 using System;
 using System.Net;
 using System.Net.Sockets;
@@ -23,6 +24,35 @@ namespace MewQTT
 
         //get the text
         public StringBuilder sb = new StringBuilder();
+
+        public CommandParser parser = new CommandParser();
+
+        Client MqqtClient = new Client();
+
+        public StateObject()
+        {
+            parser.OnMessageRecieved += Parser_OnMessageRecieved;
+            MqqtClient.OnDisconect += MqqtClient_OnDisconect;
+            MqqtClient.OnSend += MqqtClient_OnSend;
+        }
+
+        private void MqqtClient_OnSend(IMQTTMessage message)
+        {
+            AsynchronousSocketListener.Send(workSocket, message);
+        }
+
+        private void MqqtClient_OnDisconect(object sender, EventArgs e)
+        {
+            parser.Dispose();
+            workSocket.Disconnect(false);
+            workSocket.Dispose();
+            
+        }
+
+        private void Parser_OnMessageRecieved(IMQTTMessage message)
+        {
+            MqqtClient.MessageRecieved(message);
+        }
     }
 
     public class AsynchronousSocketListener 
@@ -34,10 +64,13 @@ namespace MewQTT
         int _port;
         Socket _mainSocket;
 
-        public AsynchronousSocketListener (string ip, int port)
+        MewQTTServer _server;
+
+        public AsynchronousSocketListener (string ip, int port,MewQTTServer server)
        {
             _ip = ip;
             _port = port;
+            _server = server;
          }
 
 
@@ -115,14 +148,11 @@ namespace MewQTT
 
             if(bytesread > 0)
             {
-                state.sb.Append(Encoding.UTF8.GetString(state.Buffer, 0, bytesread));
 
-                content = state.sb.ToString();
-                Console.WriteLine("Read {0} bytes from socket. \n Data : {1}",
-                    content.Length, content);
+                byte[] recievedbytes = new byte[bytesread];
+                Array.Copy(state.Buffer, recievedbytes, bytesread);
 
-                BaseFrame frame = new BaseFrame();
-                frame.GetData(state.Buffer);
+                state.parser.AddToQueue(recievedbytes);
             }
             else
             {
@@ -130,5 +160,30 @@ namespace MewQTT
             }
 
         }
+
+        public static void Send(Socket handler, IMQTTMessage message)
+        {
+            byte[] data = message.Serialize();
+            handler.BeginSend(data,0,data.Length,0, new AsyncCallback(SendCallback), handler);
+        }
+
+        private static void SendCallback(IAsyncResult ar)
+        {
+            try
+            {
+                // Retrieve the socket from the state object.  
+                Socket handler = (Socket)ar.AsyncState;
+
+                // Complete sending the data to the remote device.  
+                int bytesSent = handler.EndSend(ar);
+                Console.WriteLine("Sent {0} bytes to client.", bytesSent);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+
     }
 }

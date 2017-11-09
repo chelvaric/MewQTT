@@ -2,6 +2,7 @@
 using MewQTT;
 
 
+
 namespace TestServer
 {
     class Program
@@ -10,12 +11,14 @@ namespace TestServer
 
         static  void Main(string[] args)
         {
-            AsynchronousSocketListener listener = new AsynchronousSocketListener("127.0.0.1", 1883);
-            int i =  listener.StartListening();
 
-            Console.WriteLine(i);
+            MewQTT.Models.MewQTTServer server = new MewQTT.Models.MewQTTServer("");
+            server.RunServer();
             Console.ReadLine();
             return;
+
+
+
         }
     }
 }
